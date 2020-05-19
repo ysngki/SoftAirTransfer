@@ -1,0 +1,14 @@
+user：
+	mode_id 用来区分用户类型，比如普通用户、管理员、VIP
+	img_url   存放头像地址
+
+id_pwd：
+	salt  哈希密码时加的盐，固定256个（英文？）字符
+	pwd_hash  密码采用SHA256哈希后的值
+
+who_has_what：用来存放用户存放文件的信息
+	vir_upper_dic  某文件在用户网盘空间内的所在目录。默认是"/"
+
+files_save:
+	file_hash 根据文件内容或者其他啥的产生的一个SHA256哈希值，作为文件标识符
+	file_path_disk  该文件在服务器的地址
