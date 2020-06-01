@@ -6,24 +6,37 @@
 g++ -L/www/server/mysql/lib -lmysqlclient -o my_server main.cpp send_receive.cpp
 ```
 -----
-
 #### 客户端函数的返回值：
 
 ##### 注册:	
 
 my_register(“my_username/n1234567”);
 
-返回值： std::string
+返回值类型： std::string
 
-| 情况 | 返回值 |
+| 情况     | 返回值                        |
+| -------- | ----------------------------- |
+| 重名     | false                         |
+| 连接失败 | false！                       |
+| 成功     | id（注意是string类型，比如“1” |
 
-| ---- | ---- |
 
-| 失败 | false |
 
-| 连接失败 | false! |
+##### 登录：
 
-| 成功 | id (注意是string类型,比如“1”) |
+my_login(“my_username/n1234567”);
+
+返回值类型： std::vector<int>(2)
+
+| 情况         | 返回值      |
+| ------------ | ----------- |
+| 成功         | 0，id       |
+| 账号不存在   | 1，x        |
+| 密码错误     | 2，错误次数 |
+| 被锁         | 3，x        |
+| 建立连接失败 | 4，x        |
+
+其中x意味着无意义
 
 
 
