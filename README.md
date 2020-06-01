@@ -10,10 +10,19 @@ g++ -L/www/server/mysql/lib -lmysqlclient -o my_server main.cpp send_receive.cpp
 #### 客户端函数的返回值：
 
 注册:	
-				my_register(“my_username/n1234567”);
-				返回值： std::string
-				| 情况 | 返回值 |
-				| ---- | ---- |
-				| 失败 | false |
-				| 连接失败 | false! |
-			  | 成功 | id (注意是string类型,比如“1”) |
+
+​			my_register(“my_username/n1234567”);
+
+​			返回值： std::string
+
+​			| 情况 | 返回值 |
+
+​			| ---- | ---- |
+
+​			| 失败 | false |
+
+​			| 连接失败 | false! |
+
+​			| 成功 | id (注意是string类型,比如“1”) |
+
+
