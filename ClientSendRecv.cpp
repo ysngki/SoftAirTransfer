@@ -88,7 +88,7 @@ public:
     }
 
     // my_register("yang/n1234567");
-    bool my_register(const char* command_arg)
+    std::string my_register(const char* command_arg)
     {
         char* my_command = make_command(command_arg, 1);
 
@@ -102,7 +102,7 @@ public:
         if (recv(sock, szBuffer, 1, 0) < 1)
         {
             std::cout << "False!!!" << std::endl;
-            return false;
+            return std::string("false");
         }
         all_len = static_cast<unsigned char>(szBuffer[0]);
         szBuffer[0] = 0;
@@ -114,7 +114,7 @@ public:
             now_len += temp_len;
         } while (now_len < all_len);
 
-        return strcmp(szBuffer, "true") == 0? true :false;
+        return std::string(szBuffer);
     }
 
     bool upload_file(const char* file_path, const char* vir_upper_dic)
@@ -135,8 +135,8 @@ public:
         int all_len = 0;
         if (recv(sock, szBuffer, 1, 0) < 1)
         {
-            std::cout << "False!!!" << std::endl;
-            exit(1);
+            std::vector<int> result({ 4,0 });
+            return result;
         }
         all_len = static_cast<unsigned char>(szBuffer[0]);
         szBuffer[0] = 0;
@@ -162,13 +162,16 @@ int main(void)
 {
     ClientSendReceive* my_test = new ClientSendReceive();
 
-    //std::vector<int> result = my_test->my_login("yang\n1234567");
-    //std::cout << result[1] << std::endl;
+    /*std::vector<int> result = my_test->my_login("ya\n1234567");
+    std::cout << result[1] << std::endl;*/
 
-   /*std::string result =  my_test->run_sql("select * from id_pwd");
-   std::cout << result << std::endl;*/
+    /*std::string result = my_test->my_register("zhangds\n1234567");
+    std::cout << result << std::endl;*/
 
-    bool result = my_test->upload_file("/test.txt", "/");
-    std::cout << result << std::endl;
+   //std::string result =  my_test->run_sql("select * from id_pwd");
+   //std::cout << result << std::endl;
+
+    //bool result = my_test->upload_file("/test.txt", "/");
+    //std::cout << result << std::endl;
     delete my_test;
 }
