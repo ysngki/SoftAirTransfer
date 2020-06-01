@@ -1,4 +1,2 @@
-# SoftAirTransfer
-简易网盘，软件工程课程项目  
-用c++、QT实现
+用c++实现的，服务器（linux）与客户端（windows）之间TCP简易传输的代码
 
