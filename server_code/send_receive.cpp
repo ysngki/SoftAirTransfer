@@ -260,7 +260,8 @@ void ListenHandle::handle_login(int conn_fd, char* request)
 
     if(pwd == passward)
     {
-        message.assign("0 0");
+        message.assign("0 ");
+        message += id;
         // set wrong num to 0
         wrong_num = 0;
         exe_statement = "UPDATE id_pwd SET wrong_num=0 WHERE id=";

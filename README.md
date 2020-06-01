@@ -18,15 +18,14 @@ g++ -L/www/server/mysql/lib -lmysqlclient -o my_server main.cpp send_receive.cpp
 
 my_register(“my_username/n1234567”);
 
-返回值类型： std::string
+返回值类型： bool
 
-| 情况     | 返回值                        |
-| -------- | ----------------------------- |
-| 重名     | false                         |
-| 连接失败 | false！                       |
-| 成功     | id（注意是string类型，比如“1” |
+| 情况 | 返回值 |
+| ---- | ------ |
+| 失败 | false  |
+| 成功 | true   |
 
-
+#####   
 
 ##### 登录：
 

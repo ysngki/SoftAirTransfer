@@ -88,7 +88,7 @@ public:
     }
 
     // my_register("yang/n1234567");
-    std::string my_register(const char* command_arg)
+    bool my_register(const char* command_arg)
     {
         char* my_command = make_command(command_arg, 1);
 
@@ -102,7 +102,7 @@ public:
         if (recv(sock, szBuffer, 1, 0) < 1)
         {
             std::cout << "False!!!" << std::endl;
-            return std::string("false");
+            return false;
         }
         all_len = static_cast<unsigned char>(szBuffer[0]);
         szBuffer[0] = 0;
@@ -114,7 +114,7 @@ public:
             now_len += temp_len;
         } while (now_len < all_len);
 
-        return std::string(szBuffer);
+        return strcmp(szBuffer,"false")==0?false:true;
     }
 
     bool upload_file(const char* file_path, const char* vir_upper_dic)
@@ -165,8 +165,8 @@ int main(void)
     /*std::vector<int> result = my_test->my_login("ya\n1234567");
     std::cout << result[1] << std::endl;*/
 
-    /*std::string result = my_test->my_register("zhangds\n1234567");
-    std::cout << result << std::endl;*/
+    //bool result = my_test->my_register("zhangdsdsaffdfd\n1234567");
+    //std::cout << result << std::endl;
 
    //std::string result =  my_test->run_sql("select * from id_pwd");
    //std::cout << result << std::endl;
