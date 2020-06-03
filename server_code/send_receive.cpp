@@ -30,7 +30,7 @@ ListenHandle::ListenHandle()
     struct sockaddr_in ser_addr;
     memset(&ser_addr, 0, sizeof(ser_addr));
     ser_addr.sin_family = AF_INET;
-    ser_addr.sin_addr.s_addr = inet_addr("172.21.0.14");
+    ser_addr.sin_addr.s_addr = inet_addr("172.xx.x.xx");
     //ser_addr.sin_addr.s_addr = INADDR_ANY;
     ser_addr.sin_port = htons(8868);
 
@@ -363,7 +363,7 @@ MyDB::MyDB()
     }
 
     if (mysql_real_connect(connection, "localhost", "root",
-        "MYUSU331401", "air_transfer0", 0, NULL, 0) == NULL) {
+        "xxxxxxxx", "databse_name", 0, NULL, 0) == NULL) {
         printf("Error %u: %s\n", mysql_errno(connection), mysql_error(connection));
         exit(1);
     }

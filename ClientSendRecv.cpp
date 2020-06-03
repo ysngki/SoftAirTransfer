@@ -51,7 +51,7 @@ public:
         sockaddr_in sockAddr;
         memset(&sockAddr, 0, sizeof(sockAddr));  //每个字节都用0填充
         sockAddr.sin_family = AF_INET;
-        sockAddr.sin_addr.s_addr = inet_addr("140.143.211.31");
+        sockAddr.sin_addr.s_addr = inet_addr("140.143.xxx.xx");
         sockAddr.sin_port = htons(8868);
         if (connect(sock, (SOCKADDR*)&sockAddr, sizeof(SOCKADDR)) < 0) {
             printf("connect error: %s(errno: %d)\n", strerror(errno), errno);

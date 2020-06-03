@@ -31,7 +31,7 @@ my_register(“my_username/n1234567”);
 
 my_login(“my_username/n1234567”);
 
-返回值类型： std::vector<int>(2)
+返回值类型： std::vector\<int>(2)
 
 | 情况         | 返回值      |
 | ------------ | ----------- |
